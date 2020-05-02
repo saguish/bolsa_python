@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <table id="myTable" class="table table-sm table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">nota</th>
+            <th scope="col">tipo</th>
+            <th scope="col">data</th>
+            <th scope="col">ativo </th>
+            <th scope="col">modalidade</th>
+            <th scope="col">qtd</th>
+            <th scope="col">preco </th>
+            <th scope="col">corretagem</th>
+            <th scope="col">iss</th>
+            <th scope="col">emolumentos</th>
+            <th scope="col">liquidacao</th>
+            <th scope="col">irrf</th>
+            <th scope="col">corretora</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for trade in dados%}
+        <tr id="table_line">
+
+            <td>{{ trade[0] }}</td>
+            <td>{{ trade[1] }}</td>
+            <td>{{ trade[2] }}</td>
+            <td>{{ trade[3] }}</td>
+            <td>{{ trade[4] }}</td>
+            <td>{{ trade[5] }}</td>
+            <td>{{ trade[6] }}</td>
+            <td>{{ trade[7] }}</td>
+            <td>{{ trade[8] }}</td>
+            <td>{{ trade[9] }}</td>
+            <td>{{ trade[10] }}</td>
+            <td>{{ trade[11] }}</td>
+            <td>{{ trade[12] }}</td>
+            <td>{{ trade[13] }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}
