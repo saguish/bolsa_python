@@ -5,7 +5,7 @@ import models.TradesDAO
 import models.vendasDAO
 
 
-def render(funcao,*param):
+def render_controller(funcao):
 	pagina, dados = funcao
 	return pagina, dados
 
