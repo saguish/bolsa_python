@@ -1,18 +1,7 @@
-import psycopg2 # for database connection
+import sys
+sys.path.append('C:\\Users\\sergi\\Documents\\projetos\\bolsa_python\\virtual\\app')
 
-def conectaDB():
-    # Database connection setup
-    t_host = "localhost"
-    t_port = "5432"
-    t_dbname = "bolsa"
-    t_user = "postgres"
-    t_pw = "postgres"
-
-    try:
-        db_conn = psycopg2.connect(host=t_host, port=t_port, dbname=t_dbname, user=t_user, password=t_pw)
-        return db_conn
-    except Exception as e:
-        print(e)
+from config.config import conectaDB
 
 def get():
 
