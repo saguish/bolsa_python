@@ -1,0 +1,1 @@
+Projeto desenvolvido com flask para controle de transacoes na bolsa de valores e apuracao dos resultados
