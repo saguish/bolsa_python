@@ -4,6 +4,7 @@ sys.path.append('C:\\Users\\sergi\\Documents\\projetos\\bolsa_python\\virtual\\a
 
 import models.TradesDAO
 import models.vendasDAO
+from controller import controller
 
 app = Flask(__name__)
 
@@ -11,50 +12,17 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     pass
-
     return render_template('base.html')
 
 @app.route('/apurar')
 def apurar():
-    """
-    funcao para realizar a apuração de resultados da modalidade escolhida: swingtrade ou daytrade
-    :return:
-    """
-    dados = models.vendasDAO.apuracao()
-    return render_template('apurar.html', dados=dados)
-
-@app.route('/classificar')
-def classificar():
-    """
-    funcao para organizar trades, classificandos como swingtrade e day trade
-    e separando as operações daytrade em açoes, indice ou dolar
-    :return:
-    """
-    pass
-    return render_template('classificar.html')
-
-@app.route('/editar')
-def editar():
-    """
-    funcao para edição de trades, alterando ou excluindo dados
-    :return:
-    """
-    pass
-    return render_template('editar.html')
+    pagina, dados = controller.render(controller.controller_apurar())
+    return render_template(pagina, dados=dados)
 
 @app.route('/show/<tabela_a_mostrar>')
 def show(tabela_a_mostrar):
-    """
-    funcao para mostra tabela
-    :return:
-    """
-    if (str(tabela_a_mostrar) == 'trades'):
-        trades = models.TradesDAO.get('SWINGTRADE')
-        return render_template('showtrades.html',dados=trades)
-
-    if (str(tabela_a_mostrar) == 'vendas'):
-        vendas = models.vendasDAO.get()
-        return render_template('showvendas.html',dados=vendas)
+    pagina, dados = controller.render(controller.controller_consultar(tabela_a_mostrar))
+    return render_template(pagina, dados=dados)
 
 app.run(debug=True)
 
