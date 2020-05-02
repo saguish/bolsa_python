@@ -48,30 +48,30 @@
                 </div>
             </li>
 
-
+<!-- 
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('classificar') }}">Classificar</a>
             </li>
-
+ -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownApurar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Apurar
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownApurar">
-                    <a class="dropdown-item" href="{{url_for('apurar',modalidade='swingtrade')}}">Swingtrade</a>
+                    <a class="dropdown-item" href="/apurar">Swingtrade</a>
                     <a class="dropdown-item" href="{{url_for('apurar',modalidade='daytrade')}}">Daytrade</a>
                     <a class="dropdown-item" href="#">Ambos</a>
 
                 </div>
             </li>
 
-            <li class="nav-item">
+           <!--  <li class="nav-item">
                 <a class="nav-link" href="{{url_for('editar')}}">Editar</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            </li> -->
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input id="mySearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

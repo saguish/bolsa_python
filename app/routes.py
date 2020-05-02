@@ -1,10 +1,11 @@
 from flask import Flask, render_template, url_for
-from flask_pymongo import PyMongo
-import models.TradesDAO, models.vendasDAO
+import sys
+sys.path.append('C:\\Users\\sergi\\Documents\\projetos\\bolsa_python\\virtual\\app')
+
+import models.TradesDAO
+import models.vendasDAO
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/bolsa"
-mongo = PyMongo(app)
 
 
 @app.route('/')
@@ -13,14 +14,14 @@ def index():
 
     return render_template('base.html')
 
-@app.route('/apurar/<modalidade>')
-def apurar(modalidade):
+@app.route('/apurar')
+def apurar():
     """
     funcao para realizar a apuração de resultados da modalidade escolhida: swingtrade ou daytrade
     :return:
     """
-    pass
-    return render_template('apurar.html', modal=modalidade)
+    dados = models.vendasDAO.apuracao()
+    return render_template('apurar.html', dados=dados)
 
 @app.route('/classificar')
 def classificar():

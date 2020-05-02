@@ -59,3 +59,13 @@ def update(id, competencia):
     except Exception as e:
         print(e)
 
+def apuracao():
+    try:
+        conn = conectaDB()
+        cur = conn.cursor()
+        cur.execute("""SELECT SUM(valor_venda), competencia FROM VENDAS GROUP BY competencia ORDER BY competencia;""")
+        results = cur.fetchall()
+        return results
+
+    except Exception as e:
+        print(e)

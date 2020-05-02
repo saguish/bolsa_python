@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>apuração {{modal}} em construção</h3>
+
+<div class="container">
+    <table id="myTable" class="table table-sm table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <!-- <th scope="col">valor</th>
+            <th scope="col">ativo </th>
+            <th scope="col">data </th> -->
+            <th scope="col">valor_venda</th>
+            <th scope="col">competência</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for venda in dados%}
+        <tr>
+            <td>{{'%0.2f' % venda[0] }}</td>
+            <td>{{ venda[1] }}</td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
+
